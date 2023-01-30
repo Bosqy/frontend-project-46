@@ -1,0 +1,25 @@
+{
+  "name": "@hexlet/code",
+  "version": "1.0.0",
+  "description": "Hexlet Second Project",
+  "main": "index.js",
+  "bin" : {
+    "gendiff": "bin/gendiff.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bosqy/frontend-project-46.git"
+  },
+  "author": "Bosqy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Bosqy/frontend-project-46/issues"
+  },
+  "homepage": "https://github.com/Bosqy/frontend-project-46#readme",
+  "dependencies": {
+    "commander": "^10.0.0"
+  }
+}

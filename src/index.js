@@ -1,14 +1,22 @@
 import _ from 'lodash';
 import { readFileSync } from 'node:fs';
+import * as path from 'path'
+import process from 'node:process'
 
-const fileToJSON = (file) => {
+const ReadJSON = (file) => {
+  const pwd = process.cwd();
+    const pathToFile = path.resolve(pwd, file)
+    if (!pathToFile.endsWith('\.json')) {
+        return null 
+    }
   const fileContent = readFileSync(file, 'utf8');
   return JSON.parse(fileContent);
 };
 
+
 const genDiff = (...files) => {
   const [file1, file2] = files
-        .map(fileToJSON)
+        .map(ReadJSON)
         .map(Object.entries)
         .map((json) => json.map((line) => line.join(':')))
     const inBoth = _.intersection(file1, file2)
@@ -32,10 +40,6 @@ const genDiff = (...files) => {
     const diffFormatted = _.sortBy(diff, [function(a) {return a[1]}])
       .map((innerRec) => `  ${innerRec[0]} ${innerRec[1]}: ${innerRec[2]}`)
       .join('\n');
-//    console.log( `{\n${diffFormatted}\n}`);
     return `{\n${diffFormatted}\n}`;
 };
 export default genDiff;
-
-//  genDiff('/home/groo/frontend-project-46/fixtures/file1.json', '/home/groo/frontend-project-46/fixtures/file2.json');
-

@@ -4,7 +4,7 @@
   "description": "Hexlet Second Project",
   "type": "module",
   "main": "index.js",
-  "bin" : {
+  "bin": {
     "gendiff": "bin/gendiff.js"
   },
   "scripts": {
@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/Bosqy/frontend-project-46#readme",
   "dependencies": {
-    "commander": "^10.0.0"
+    "commander": "^10.0.0",
+    "lodash": "^4.17.21"
   }
 }

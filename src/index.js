@@ -7,7 +7,7 @@ const ReadJSON = (file) => {
   const pwd = process.cwd();
   const pathToFile = path.resolve(pwd, file);
   if (!pathToFile.endsWith('.json')) {
-    return null;
+    return {};
   }
   const fileContent = readFileSync(file, 'utf8');
   return JSON.parse(fileContent);

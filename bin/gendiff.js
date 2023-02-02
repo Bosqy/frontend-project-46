@@ -4,7 +4,7 @@ import { program } from 'commander';
 
 const command = () => {
   console.log('It Works!');
-}
+};
 
 program
   .version('0.0.1')
@@ -13,4 +13,3 @@ program
   .description('Compares two configuration files and shows a difference.')
   .option('-f, --format', 'output format')
   .parse(process.argv);
-

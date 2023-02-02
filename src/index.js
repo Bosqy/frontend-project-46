@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import { readFileSync } from 'node:fs';
-import * as path from 'path';
+import path from 'path';
 import process from 'node:process';
 
 const ReadJSON = (file) => {

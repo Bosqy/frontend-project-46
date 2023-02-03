@@ -11,7 +11,7 @@ jobs:
       - run: make install
       - run: make lint
       - run: make test
-      - uses: paambaati/codeclimate-action@3.0.0
+      - uses: paambaati/codeclimate-action@2.2.4
         env:
             CC_REPORTER_ID: ${{ secrets.CODECLIMATE_ID }}
         with: 

@@ -12,7 +12,7 @@
 
 ## Примеры работы
 * Сравнение JSON
-[![asciicast](https://asciinema.org/a/WKgVsvEr2H7oYQRiYfPxo9ZDR.svg)](https://asciinema.org/a/WKgVsvEr2H7oYQRiYfPxo9ZDR)
+[![asciicast](https://asciinema.org/a/UCu5r4Hsxe3VRP69Zio60MXYK.svg)](https://asciinema.org/a/UCu5r4Hsxe3VRP69Zio60MXYK)
 
 * Сравнение YAML
 [![asciicast](https://asciinema.org/a/BRwEZNUR4ft6wO2RlxJin8UFp.svg)](https://asciinema.org/a/BRwEZNUR4ft6wO2RlxJin8UFp)

@@ -1,21 +1,9 @@
 import _ from 'lodash';
-import { readFileSync } from 'node:fs';
-import path from 'path';
-import process from 'node:process';
-
-const ReadJSON = (file) => {
-  const pwd = process.cwd();
-  const pathToFile = path.resolve(pwd, file);
-  if (!pathToFile.endsWith('.json')) {
-    return {};
-  }
-  const fileContent = readFileSync(file, 'utf8');
-  return JSON.parse(fileContent);
-};
+import parseFile from './parsers.js';
 
 const genDiff = (...files) => {
   const [file1, file2] = files
-    .map(ReadJSON)
+    .map(parseFile)
     .map(Object.entries)
     .map((json) => json.map((line) => line.join(':')));
   const inBoth = _.intersection(file1, file2);

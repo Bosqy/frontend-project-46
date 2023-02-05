@@ -13,3 +13,6 @@
 ## Примеры работы
 * Сравнение JSON
 [![asciicast](https://asciinema.org/a/WKgVsvEr2H7oYQRiYfPxo9ZDR.svg)](https://asciinema.org/a/WKgVsvEr2H7oYQRiYfPxo9ZDR)
+
+* Сравнение YAML
+[![asciicast](https://asciinema.org/a/BRwEZNUR4ft6wO2RlxJin8UFp.svg)](https://asciinema.org/a/BRwEZNUR4ft6wO2RlxJin8UFp)

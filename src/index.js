@@ -1,32 +1,108 @@
 import _ from 'lodash';
 import parseFile from './parsers.js';
 
+const genDiffTree = (obj1, obj2) => {
+  const keys1 = Object.keys(obj1);
+  const keys2 = Object.keys(obj2);
+  const diffTree = [];
+  _.difference(keys1, keys2)
+    .reduce((acc, key) => {
+      if (_.isObject(obj1[key])) {
+        acc.push(
+          {
+            action: 'inFirst',
+            type: 'node',
+            key,
+            value: genDiffTree(obj1[key], obj1[key]),
+          },
+        );
+        return acc;
+      }
+      acc.push({
+        action: 'inFirst', type: 'leaf', key, value: obj1[key],
+      });
+      return acc;
+    }, diffTree);
+  _.difference(keys2, keys1)
+    .reduce((acc, key) => {
+      if (_.isObject(obj2[key])) {
+        acc.push(
+          {
+            action: 'inSecond',
+            type: 'node',
+            key,
+            value: genDiffTree(obj2[key], obj2[key]),
+          },
+        );
+        return acc;
+      }
+      acc.push({
+        action: 'inSecond', type: 'leaf', key, value: obj2[key],
+      });
+      return acc;
+    }, diffTree);
+  _.intersection(keys1, keys2)
+    .reduce((acc, key) => {
+      if (_.isObject(obj1[key]) && _.isObject(obj2[key])) {
+        acc.push(
+          {
+            action: 'inBoth',
+            type: 'node',
+            key,
+            value: genDiffTree(obj1[key], obj2[key]),
+          },
+        );
+        return acc;
+      }
+      if (_.isObject(obj1[key]) && !_.isObject(obj2[key])) {
+        acc.push(
+          {
+            action: 'inFirst',
+            type: 'node',
+            key,
+            value: genDiffTree(obj1[key], obj1[key]),
+          },
+        );
+        acc.push({
+          action: 'inSecond', type: 'leaf', key, value: obj2[key],
+        });
+        return acc;
+      }
+      if (!_.isObject(obj1[key]) && _.isObject(obj2[key])) {
+        acc.push({
+          action: 'inFirst', type: 'leaf', key, value: obj1[key],
+        });
+        acc.push(
+          {
+            action: 'inSecond',
+            type: 'node',
+            key,
+            value: genDiffTree(obj2[key], obj2[key]),
+          },
+        );
+        return acc;
+      }
+      if (obj1[key] === obj2[key]) {
+        acc.push({
+          action: 'inBoth', type: 'leaf', key, value: obj2[key],
+        });
+      } else {
+        acc.push({
+          action: 'inFirst', type: 'leaf', key, value: obj1[key],
+        });
+        acc.push({
+          action: 'inSecond', type: 'leaf', key, value: obj2[key],
+        });
+      }
+      return acc;
+    }, diffTree);
+  return _.sortBy(diffTree, ['key', 'action']);
+};
+
 const genDiff = (...files) => {
   const [file1, file2] = files
-    .map(parseFile)
-    .map(Object.entries)
-    .map((json) => json.map((line) => line.join(':')));
-  const inBoth = _.intersection(file1, file2);
-  const inFirst = _.difference(file1, file2);
-  const inSecond = _.difference(file2, file1);
-  const diff = _.flatten(
-    [
-      [' ', ...inBoth],
-      ['-', ...inFirst],
-      ['+', ...inSecond],
-    ]
-      .map((group) => {
-        const [first, ...rest] = group;
-        return rest.reduce((acc, line) => {
-          const [key, value] = line.split(':');
-          acc.push([first, key, value]);
-          return acc;
-        }, []);
-      }),
-  );
-  const diffFormatted = _.sortBy(diff, [(a) => a[1]])
-    .map((innerRec) => `  ${innerRec[0]} ${innerRec[1]}: ${innerRec[2]}`)
-    .join('\n');
-  return `{\n${diffFormatted}\n}`;
+    .map(parseFile);
+  return genDiffTree(file1, file2);
 };
+
 export default genDiff;

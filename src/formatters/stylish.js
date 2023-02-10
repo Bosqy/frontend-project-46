@@ -26,11 +26,4 @@ const getStylish = (tree) => {
   return iter(tree, 1);
 };
 
-const formatter = (tree, format = 'stylish') => {
-  if (format === 'stylish') {
-    return getStylish(tree);
-  }
-  return 'Unknown format';
-};
-
-export default formatter;
+export default getStylish;

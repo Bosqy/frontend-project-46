@@ -2,11 +2,9 @@
 
 import { program } from 'commander';
 import genDiff from '../src/index.js';
-import formatter from '../src/formatters.js';
 
 const command = (filepath1, filepath2, format) => {
-  const diffTree = genDiff(filepath1, filepath2);
-  const output = formatter(diffTree, format);
+  const output = genDiff(filepath1, filepath2, format);
   console.log(output);
 };
 

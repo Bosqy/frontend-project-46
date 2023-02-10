@@ -19,3 +19,6 @@
 
 * Рекурсивное сравнение JSON, YAML
 [![asciicast](https://asciinema.org/a/FGNtt4PZMJZhnJRvshpVPfWeG.svg)](https://asciinema.org/a/FGNtt4PZMJZhnJRvshpVPfWeG)
+
+* Плоский формат
+[![asciicast](https://asciinema.org/a/uQ3IdzSxLSlCTKFXKIY91zI1V.svg)](https://asciinema.org/a/uQ3IdzSxLSlCTKFXKIY91zI1V)

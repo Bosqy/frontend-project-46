@@ -16,3 +16,6 @@
 
 * Сравнение YAML
 [![asciicast](https://asciinema.org/a/BRwEZNUR4ft6wO2RlxJin8UFp.svg)](https://asciinema.org/a/BRwEZNUR4ft6wO2RlxJin8UFp)
+
+* Рекурсивное сравнение JSON, YAML
+[![asciicast](https://asciinema.org/a/FGNtt4PZMJZhnJRvshpVPfWeG.svg)](https://asciinema.org/a/FGNtt4PZMJZhnJRvshpVPfWeG)

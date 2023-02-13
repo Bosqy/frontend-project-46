@@ -22,3 +22,7 @@
 
 * Плоский формат
 [![asciicast](https://asciinema.org/a/uQ3IdzSxLSlCTKFXKIY91zI1V.svg)](https://asciinema.org/a/uQ3IdzSxLSlCTKFXKIY91zI1V)
+
+* Формат JSON
+
+[![asciicast](https://asciinema.org/a/3hPn4baawgynONOyVxb1yK6Rk.svg)](https://asciinema.org/a/3hPn4baawgynONOyVxb1yK6Rk)

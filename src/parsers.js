@@ -10,13 +10,12 @@ const getPath = (file) => {
 
 const getParser = (file) => {
   const format = path.extname(file);
-  let parser = '';
   if (format === '.json') {
-    parser = JSON.parse;
-  } else if (format === '.yml' || format === '.yaml') {
-    parser = yaml.load;
+    return JSON.parse;
+  } if (format === '.yml' || format === '.yaml') {
+    return yaml.load;
   }
-  return parser;
+  throw new Error(`Unknown file extension: ${format}`);
 };
 
 const parseFile = (file) => {

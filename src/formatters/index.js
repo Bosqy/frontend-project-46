@@ -1,6 +1,6 @@
 import getStylish from './stylish.js';
 import getPlain from './plain.js';
-import getJSON from './json.js'
+import getJSON from './json.js';
 
 const formatter = (tree, format = 'stylish') => {
   if (format === 'stylish') {
@@ -10,7 +10,7 @@ const formatter = (tree, format = 'stylish') => {
     return getPlain(tree);
   }
   if (format === 'json') {
-    return getJSON(tree)
+    return getJSON(tree);
   }
   throw new Error(`Unknown format: ${format}`);
 };

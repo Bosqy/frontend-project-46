@@ -3,8 +3,9 @@ import _ from 'lodash';
 const genDiffTree = (obj1, obj2) => {
   const keys1 = Object.keys(obj1);
   const keys2 = Object.keys(obj2);
-  return _.union(keys1, keys2)
-    .sort()
+  const unsortedKeys = _.union(keys1, keys2);
+  const sortedKeys = [...unsortedKeys].sort();
+  return sortedKeys
     .map((key) => {
       if (!_.has(obj1, key)) {
         if (_.isObject(obj2[key])) {

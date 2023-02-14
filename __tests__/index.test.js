@@ -18,6 +18,14 @@ test('genDiff JSON formatter: stylish', () => {
   expect(genDiff(file1, file2, 'stylish')).toEqual(expectedStylish);
 });
 
+const expectedStylishReverse = readFileSync(getFixturePath('expected_stylish_reverse'), 'utf8').trim();
+
+test('genDiff JSON reverse arguments formatter: stylish', () => {
+  const file1 = getFixturePath('file1.json');
+  const file2 = getFixturePath('file2.json');
+  expect(genDiff(file2, file1, 'stylish')).toEqual(expectedStylishReverse);
+});
+
 test('genDiff YAML formatter: stylish', () => {
   const file1 = getFixturePath('file1.yml');
   const file2 = getFixturePath('file2.yaml');

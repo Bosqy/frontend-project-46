@@ -19,13 +19,14 @@ const getStylish = (tree) => {
     const content = innerTree.map((el) => {
       const stylishLabel = getStylishLabel(el.status);
       const indent = `${replacer.repeat(depth * 2 - 1)}${stylishLabel}`;
+      if (el.status === 'updated') {
+        const indentRemoved = indent.slice(0, -2).concat(getStylishLabel('removed'));
+        const indentAdded = indent.slice(0, -2).concat(getStylishLabel('added'));
+        const value = Array.isArray(el.value) ? iter(el.value, depth + 1) : el.value;
+        const oldValue = Array.isArray(el.oldValue) ? iter(el.oldValue, depth + 1) : el.oldValue;
+        return `${indentRemoved}${el.key}: ${oldValue}\n${indentAdded}${el.key}: ${value}`;
+      }
       if (el.type === 'leaf') {
-        if (stylishLabel === '+-') {
-          const indentRemoved = indent.slice(0, -2).concat(getStylishLabel('removed'));
-          const indentAdded = indent.slice(0, -2).concat(getStylishLabel('added'));
-          const oldValue = Array.isArray(el.oldValue) ? iter(el.oldValue, depth + 1) : el.oldValue;
-          return `${indentRemoved}${el.key}: ${oldValue}\n${indentAdded}${el.key}: ${el.value}`;
-        }
         return `${indent}${el.key}: ${el.value}`;
       }
       return `${indent}${el.key}: ${iter(el.value, depth + 1)}`;

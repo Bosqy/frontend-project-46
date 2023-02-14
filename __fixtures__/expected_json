@@ -1,199 +1,179 @@
 [
   {
-    "action": "inBoth",
-    "type": "node",
     "key": "common",
     "value": [
       {
-        "action": "inSecond",
-        "type": "leaf",
         "key": "follow",
-        "value": false
+        "value": false,
+        "status": "added",
+        "type": "leaf"
       },
       {
-        "action": "inBoth",
-        "type": "leaf",
         "key": "setting1",
-        "value": "Value 1"
+        "value": "Value 1",
+        "status": "unchanged",
+        "type": "leaf"
       },
       {
-        "action": "inFirst",
-        "type": "leaf",
         "key": "setting2",
-        "value": 200
+        "value": 200,
+        "status": "removed",
+        "type": "leaf"
       },
       {
-        "action": "inFirst",
-        "type": "leaf",
         "key": "setting3",
-        "value": true
+        "value": null,
+        "status": "updated",
+        "oldValue": true,
+        "type": "leaf"
       },
       {
-        "action": "inSecond",
-        "type": "leaf",
-        "key": "setting3",
-        "value": null
-      },
-      {
-        "action": "inSecond",
-        "type": "leaf",
         "key": "setting4",
-        "value": "blah blah"
+        "value": "blah blah",
+        "status": "added",
+        "type": "leaf"
       },
       {
-        "action": "inSecond",
-        "type": "node",
         "key": "setting5",
         "value": [
           {
-            "action": "inBoth",
-            "type": "leaf",
             "key": "key5",
-            "value": "value5"
+            "value": "value5",
+            "status": "unchanged",
+            "type": "leaf"
           }
-        ]
+        ],
+        "status": "added",
+        "type": "node"
       },
       {
-        "action": "inBoth",
-        "type": "node",
         "key": "setting6",
         "value": [
           {
-            "action": "inBoth",
-            "type": "node",
             "key": "doge",
             "value": [
               {
-                "action": "inFirst",
-                "type": "leaf",
                 "key": "wow",
-                "value": ""
-              },
-              {
-                "action": "inSecond",
-                "type": "leaf",
-                "key": "wow",
-                "value": "so much"
+                "value": "so much",
+                "status": "updated",
+                "oldValue": "",
+                "type": "leaf"
               }
-            ]
+            ],
+            "status": "unchanged",
+            "type": "node"
           },
           {
-            "action": "inBoth",
-            "type": "leaf",
             "key": "key",
-            "value": "value"
+            "value": "value",
+            "status": "unchanged",
+            "type": "leaf"
           },
           {
-            "action": "inSecond",
-            "type": "leaf",
             "key": "ops",
-            "value": "vops"
+            "value": "vops",
+            "status": "added",
+            "type": "leaf"
           }
-        ]
+        ],
+        "status": "unchanged",
+        "type": "node"
       }
-    ]
+    ],
+    "status": "unchanged",
+    "type": "node"
   },
   {
-    "action": "inBoth",
-    "type": "node",
     "key": "group1",
     "value": [
       {
-        "action": "inFirst",
-        "type": "leaf",
         "key": "baz",
-        "value": "bas"
+        "value": "bars",
+        "status": "updated",
+        "oldValue": "bas",
+        "type": "leaf"
       },
       {
-        "action": "inSecond",
-        "type": "leaf",
-        "key": "baz",
-        "value": "bars"
-      },
-      {
-        "action": "inBoth",
-        "type": "leaf",
         "key": "foo",
-        "value": "bar"
+        "value": "bar",
+        "status": "unchanged",
+        "type": "leaf"
       },
       {
-        "action": "inFirst",
-        "type": "node",
         "key": "nest",
-        "value": [
+        "value": "str",
+        "status": "updated",
+        "oldValue": [
           {
-            "action": "inBoth",
-            "type": "leaf",
             "key": "key",
-            "value": "value"
+            "value": "value",
+            "status": "unchanged",
+            "type": "leaf"
           }
-        ]
-      },
-      {
-        "action": "inSecond",
-        "type": "leaf",
-        "key": "nest",
-        "value": "str"
+        ],
+        "type": "leaf"
       }
-    ]
+    ],
+    "status": "unchanged",
+    "type": "node"
   },
   {
-    "action": "inFirst",
-    "type": "node",
     "key": "group2",
     "value": [
       {
-        "action": "inBoth",
-        "type": "leaf",
         "key": "abc",
-        "value": 12345
+        "value": 12345,
+        "status": "unchanged",
+        "type": "leaf"
       },
       {
-        "action": "inBoth",
-        "type": "node",
         "key": "deep",
         "value": [
           {
-            "action": "inBoth",
-            "type": "leaf",
             "key": "id",
-            "value": 45
+            "value": 45,
+            "status": "unchanged",
+            "type": "leaf"
           }
-        ]
+        ],
+        "status": "unchanged",
+        "type": "node"
       }
-    ]
+    ],
+    "status": "removed",
+    "type": "node"
   },
   {
-    "action": "inSecond",
-    "type": "node",
     "key": "group3",
     "value": [
       {
-        "action": "inBoth",
-        "type": "node",
         "key": "deep",
         "value": [
           {
-            "action": "inBoth",
-            "type": "node",
             "key": "id",
             "value": [
               {
-                "action": "inBoth",
-                "type": "leaf",
                 "key": "number",
-                "value": 45
+                "value": 45,
+                "status": "unchanged",
+                "type": "leaf"
               }
-            ]
+            ],
+            "status": "unchanged",
+            "type": "node"
           }
-        ]
+        ],
+        "status": "unchanged",
+        "type": "node"
       },
       {
-        "action": "inBoth",
-        "type": "leaf",
         "key": "fee",
-        "value": 100500
+        "value": 100500,
+        "status": "unchanged",
+        "type": "leaf"
       }
-    ]
+    ],
+    "status": "added",
+    "type": "node"
   }
 ]

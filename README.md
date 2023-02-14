@@ -25,4 +25,4 @@
 
 * Формат JSON
 
-[![asciicast](https://asciinema.org/a/3hPn4baawgynONOyVxb1yK6Rk.svg)](https://asciinema.org/a/3hPn4baawgynONOyVxb1yK6Rk)
+[![asciicast](https://asciinema.org/a/03FkQvgFobo2Xk1IzKWOtPlLn.svg)](https://asciinema.org/a/03FkQvgFobo2Xk1IzKWOtPlLn)

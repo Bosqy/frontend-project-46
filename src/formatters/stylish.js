@@ -1,8 +1,12 @@
+import _ from 'lodash';
+import genDiffTree from '../tree.js';
+
 const getStylishLabel = (status) => {
   switch (status) {
     case 'updated':
       return '+-';
     case 'unchanged':
+    case 'tree':
       return '  ';
     case 'added':
       return '+ ';
@@ -22,14 +26,20 @@ const getStylish = (tree) => {
       if (el.status === 'updated') {
         const indentRemoved = indent.slice(0, -2).concat(getStylishLabel('removed'));
         const indentAdded = indent.slice(0, -2).concat(getStylishLabel('added'));
-        const value = Array.isArray(el.value) ? iter(el.value, depth + 1) : el.value;
-        const oldValue = Array.isArray(el.oldValue) ? iter(el.oldValue, depth + 1) : el.oldValue;
+        const value = _.isPlainObject(el.value)
+          ? iter(genDiffTree(el.value, el.value), depth + 1)
+          : el.value;
+        const oldValue = _.isPlainObject(el.oldValue)
+          ? iter(genDiffTree(el.oldValue, el.oldValue), depth + 1)
+          : el.oldValue;
         return `${indentRemoved}${el.key}: ${oldValue}\n${indentAdded}${el.key}: ${value}`;
       }
-      if (el.type === 'leaf') {
-        return `${indent}${el.key}: ${el.value}`;
+      if (_.has(el, 'children')) {
+        return `${indent}${el.key}: ${iter(el.children, depth + 1)}`;
       }
-      return `${indent}${el.key}: ${iter(el.value, depth + 1)}`;
+      return _.isPlainObject(el.value)
+        ? `${indent}${el.key}: ${iter(genDiffTree(el.value, el.value), depth + 1)}`
+        : `${indent}${el.key}: ${el.value}`;
     });
     const closingBrace = `${replacer.repeat(depth * 2 - 2)}}`;
     return ['{', ...content, closingBrace].join('\n');

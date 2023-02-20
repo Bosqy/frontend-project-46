@@ -1,5 +1,7 @@
+import _ from 'lodash';
+
 const formatType = (data) => {
-  if (Array.isArray(data)) return '[complex value]';
+  if (_.isPlainObject(data)) return '[complex value]';
   if (typeof (data) !== 'string') {
     return data;
   }
@@ -15,6 +17,7 @@ const getDetails = (el) => {
     case 'added':
       return ` with value: ${formatType(el.value)}`;
     case 'removed':
+    case 'tree':
       return '';
     default:
       throw new Error(`Unknown status: ${el.status}`);
@@ -26,8 +29,8 @@ const getPlain = (tree) => {
     .flatMap((el) => {
       const property = path === '' ? el.key : path.concat('.', el.key);
       const elInfo = `Property ${formatType(property)} was ${el.status}${getDetails(el)}`;
-      if (el.type === 'node') {
-        return el.status === 'unchanged' ? iter(el.value, property) : [elInfo, ...iter(el.value, property)];
+      if (el.status === 'tree') {
+        return [...iter(el.children, property)];
       }
       return el.status === 'unchanged' ? [] : elInfo;
     });

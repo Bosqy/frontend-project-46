@@ -1,179 +1,116 @@
 [
   {
     "key": "common",
-    "value": [
+    "status": "tree",
+    "children": [
       {
         "key": "follow",
-        "value": false,
         "status": "added",
-        "type": "leaf"
+        "value": false
       },
       {
         "key": "setting1",
-        "value": "Value 1",
         "status": "unchanged",
-        "type": "leaf"
+        "value": "Value 1"
       },
       {
         "key": "setting2",
-        "value": 200,
         "status": "removed",
-        "type": "leaf"
+        "value": 200
       },
       {
         "key": "setting3",
-        "value": null,
         "status": "updated",
-        "oldValue": true,
-        "type": "leaf"
+        "value": null,
+        "oldValue": true
       },
       {
         "key": "setting4",
-        "value": "blah blah",
         "status": "added",
-        "type": "leaf"
+        "value": "blah blah"
       },
       {
         "key": "setting5",
-        "value": [
-          {
-            "key": "key5",
-            "value": "value5",
-            "status": "unchanged",
-            "type": "leaf"
-          }
-        ],
         "status": "added",
-        "type": "node"
+        "value": {
+          "key5": "value5"
+        }
       },
       {
         "key": "setting6",
-        "value": [
+        "status": "tree",
+        "children": [
           {
             "key": "doge",
-            "value": [
+            "status": "tree",
+            "children": [
               {
                 "key": "wow",
-                "value": "so much",
                 "status": "updated",
-                "oldValue": "",
-                "type": "leaf"
+                "value": "so much",
+                "oldValue": ""
               }
-            ],
-            "status": "unchanged",
-            "type": "node"
+            ]
           },
           {
             "key": "key",
-            "value": "value",
             "status": "unchanged",
-            "type": "leaf"
+            "value": "value"
           },
           {
             "key": "ops",
-            "value": "vops",
             "status": "added",
-            "type": "leaf"
+            "value": "vops"
           }
-        ],
-        "status": "unchanged",
-        "type": "node"
+        ]
       }
-    ],
-    "status": "unchanged",
-    "type": "node"
+    ]
   },
   {
     "key": "group1",
-    "value": [
+    "status": "tree",
+    "children": [
       {
         "key": "baz",
-        "value": "bars",
         "status": "updated",
-        "oldValue": "bas",
-        "type": "leaf"
+        "value": "bars",
+        "oldValue": "bas"
       },
       {
         "key": "foo",
-        "value": "bar",
         "status": "unchanged",
-        "type": "leaf"
+        "value": "bar"
       },
       {
         "key": "nest",
-        "value": "str",
         "status": "updated",
-        "oldValue": [
-          {
-            "key": "key",
-            "value": "value",
-            "status": "unchanged",
-            "type": "leaf"
-          }
-        ],
-        "type": "leaf"
+        "value": "str",
+        "oldValue": {
+          "key": "value"
+        }
       }
-    ],
-    "status": "unchanged",
-    "type": "node"
+    ]
   },
   {
     "key": "group2",
-    "value": [
-      {
-        "key": "abc",
-        "value": 12345,
-        "status": "unchanged",
-        "type": "leaf"
-      },
-      {
-        "key": "deep",
-        "value": [
-          {
-            "key": "id",
-            "value": 45,
-            "status": "unchanged",
-            "type": "leaf"
-          }
-        ],
-        "status": "unchanged",
-        "type": "node"
-      }
-    ],
     "status": "removed",
-    "type": "node"
+    "value": {
+      "abc": 12345,
+      "deep": {
+        "id": 45
+      }
+    }
   },
   {
     "key": "group3",
-    "value": [
-      {
-        "key": "deep",
-        "value": [
-          {
-            "key": "id",
-            "value": [
-              {
-                "key": "number",
-                "value": 45,
-                "status": "unchanged",
-                "type": "leaf"
-              }
-            ],
-            "status": "unchanged",
-            "type": "node"
-          }
-        ],
-        "status": "unchanged",
-        "type": "node"
-      },
-      {
-        "key": "fee",
-        "value": 100500,
-        "status": "unchanged",
-        "type": "leaf"
-      }
-    ],
     "status": "added",
-    "type": "node"
+    "value": {
+      "deep": {
+        "id": {
+          "number": 45
+        }
+      },
+      "fee": 100500
+    }
   }
 ]

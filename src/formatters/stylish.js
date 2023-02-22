@@ -37,7 +37,7 @@ const getStylish = (tree) => {
           throw new Error(`Unknown status: ${el.status}`);
       }
     });
-    const closingBrace = `${getIndent(2 * depth - 2)}}`;
+    const closingBrace = `${getIndent(depth * 2 - 2)}}`;
     return ['{', ...content, closingBrace].join('\n');
   };
   return iter(tree, 1);

@@ -2,7 +2,7 @@ import getStylish from './stylish.js';
 import getPlain from './plain.js';
 import getJSON from './json.js';
 
-const formatter = (tree, format = 'stylish') => {
+const formatter = (tree, format) => {
   if (format === 'stylish') {
     return getStylish(tree);
   }

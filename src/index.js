@@ -10,7 +10,7 @@ const getPath = (file) => {
   return path.resolve(pwd, file);
 };
 
-const genDiff = (filepath1, filepath2, formatName) => {
+const genDiff = (filepath1, filepath2, formatName = 'stylish') => {
   const [file1, file2] = [filepath1, filepath2]
     .map(getPath)
     .map((filepath) => [readFileSync(filepath, 'utf8'), path.extname(filepath)])

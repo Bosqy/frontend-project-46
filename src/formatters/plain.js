@@ -10,6 +10,8 @@ const stringify = (value) => {
   return `'${value}'`;
 };
 
+const getPlainString = (property, status) => `Property '${property}' was ${status}`;
+
 const getPlain = (tree) => {
   const iter = (innerTree, path) => innerTree
     .flatMap((el) => {
@@ -18,13 +20,13 @@ const getPlain = (tree) => {
         case 'tree':
           return [...iter(el.children, property)];
         case 'updated':
-          return `Property '${property}' was updated. From ${stringify(el.oldValue)} to ${stringify(el.value)}`;
+          return `${getPlainString(property, el.status)}. From ${stringify(el.oldValue)} to ${stringify(el.value)}`;
         case 'unchanged':
           return [];
         case 'added':
-          return `Property '${property}' was added with value: ${stringify(el.value)}`;
+          return `${getPlainString(property, el.status)} with value: ${stringify(el.value)}`;
         case 'removed':
-          return `Property '${property}' was removed`;
+          return `${getPlainString(property, el.status)}`;
         default:
           throw new Error(`Unknown status: ${el.status}`);
       }

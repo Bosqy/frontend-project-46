@@ -20,19 +20,17 @@ const getStylish = (tree) => {
   const iter = (innerTree, depth) => {
     const content = innerTree.map((el) => {
       const indent = `${getIndent(depth)}`;
-      const value = stringify(el.value, depth + 1);
-      const oldValue = stringify(el.oldValue, depth + 1);
       switch (el.status) {
         case 'tree':
           return `${indent}  ${el.key}: ${iter(el.children, depth + 1)}`;
         case 'updated':
-          return `${indent}- ${el.key}: ${oldValue}\n${indent}+ ${el.key}: ${value}`;
+          return `${indent}- ${el.key}: ${stringify(el.oldValue, depth + 1)}\n${indent}+ ${el.key}: ${stringify(el.value, depth + 1)}`;
         case 'unchanged':
-          return `${indent}  ${el.key}: ${value}`;
+          return `${indent}  ${el.key}: ${stringify(el.value, depth + 1)}`;
         case 'added':
-          return `${indent}+ ${el.key}: ${value}`;
+          return `${indent}+ ${el.key}: ${stringify(el.value, depth + 1)}`;
         case 'removed':
-          return `${indent}- ${el.key}: ${value}`;
+          return `${indent}- ${el.key}: ${stringify(el.value, depth + 1)}`;
         default:
           throw new Error(`Unknown status: ${el.status}`);
       }

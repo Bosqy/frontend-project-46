@@ -1,38 +1,33 @@
 import _ from 'lodash';
 
-const formatType = (data) => {
-  if (_.isPlainObject(data)) return '[complex value]';
-  if (typeof (data) !== 'string') {
-    return data;
+const stringify = (value) => {
+  if (_.isPlainObject(value)) {
+    return '[complex value]';
   }
-  return `'${data}'`;
-};
-
-const getDetails = (el) => {
-  switch (el.status) {
-    case 'updated':
-      return `. From ${formatType(el.oldValue)} to ${formatType(el.value)}`;
-    case 'unchanged':
-      return `. Value is still: ${formatType(el.value)}`;
-    case 'added':
-      return ` with value: ${formatType(el.value)}`;
-    case 'removed':
-    case 'tree':
-      return '';
-    default:
-      throw new Error(`Unknown status: ${el.status}`);
+  if (typeof (value) !== 'string') {
+    return `${value}`;
   }
+  return `'${value}'`;
 };
 
 const getPlain = (tree) => {
   const iter = (innerTree, path) => innerTree
     .flatMap((el) => {
       const property = path === '' ? el.key : path.concat('.', el.key);
-      const elInfo = `Property ${formatType(property)} was ${el.status}${getDetails(el)}`;
-      if (el.status === 'tree') {
-        return [...iter(el.children, property)];
+      switch (el.status) {
+        case 'tree':
+          return [...iter(el.children, property)];
+        case 'updated':
+          return `Property '${property}' was updated. From ${stringify(el.oldValue)} to ${stringify(el.value)}`;
+        case 'unchanged':
+          return [];
+        case 'added':
+          return `Property '${property}' was added with value: ${stringify(el.value)}`;
+        case 'removed':
+          return `Property '${property}' was removed`;
+        default:
+          throw new Error(`Unknown status: ${el.status}`);
       }
-      return el.status === 'unchanged' ? [] : elInfo;
     });
   return iter(tree, '').join('\n');
 };

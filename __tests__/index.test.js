@@ -12,6 +12,18 @@ const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', 
 
 const expectedStylish = readFileSync(getFixturePath('expected_stylish'), 'utf8').trim();
 
+test('genDiff JSON formatter: default', () => {
+  const file1 = getFixturePath('file1.json');
+  const file2 = getFixturePath('file2.json');
+  expect(genDiff(file1, file2)).toEqual(expectedStylish);
+});
+
+test('genDiff YAML formatter: default', () => {
+  const file1 = getFixturePath('file1.yml');
+  const file2 = getFixturePath('file2.yaml');
+  expect(genDiff(file1, file2)).toEqual(expectedStylish);
+});
+
 test('genDiff JSON formatter: stylish', () => {
   const file1 = getFixturePath('file1.json');
   const file2 = getFixturePath('file2.json');

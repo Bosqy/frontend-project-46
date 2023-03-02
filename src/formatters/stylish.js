@@ -18,13 +18,13 @@ const getIndent = (depth, label = 'blank') => {
 
 const stringify = (value, depth) => {
   const indent = getIndent(depth);
-  if (_.isPlainObject(value)) {
-    const entries = Object.entries(value)
-      .map(([entryKey, entryValue]) => `${indent}${entryKey}: ${stringify(entryValue, depth + 1)}`);
-    const closingBrace = `${getIndent(depth - 1)}}`;
-    return ['{', ...entries, closingBrace].join('\n');
+  if (!_.isPlainObject(value)) {
+    return `${value}`;
   }
-  return `${value}`;
+  const entries = Object.entries(value)
+    .map(([entryKey, entryValue]) => `${indent}${entryKey}: ${stringify(entryValue, depth + 1)}`);
+  const closingBrace = `${getIndent(depth - 1)}}`;
+  return ['{', ...entries, closingBrace].join('\n');
 };
 
 const getStylish = (tree) => {

@@ -10,7 +10,7 @@ const formatter = (tree, format) => {
     case 'json':
       return JSON.stringify(tree, null, '  ');
     default:
-      throw new Error(`Unknown format: ${format}`);
+      throw new Error(`Unknown formatter: ${format}`);
   }
 };
 

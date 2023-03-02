@@ -30,12 +30,8 @@ describe('Normal work', () => {
     expect(genDiff(jsonFile1, jsonFile2, formatter)).toEqual(expected);
   });
 
-  test('genDiff formatter: default', () => {
-    expect(genDiff(jsonFile1, jsonFile2)).toEqual(expectedStylish);
-  });
-
-  test('genDiff YAML', () => {
-    expect(genDiff(yamlFile1, yamlFile2, 'stylish')).toEqual(expectedStylish);
+  test('genDiff YAML formatter: default', () => {
+    expect(genDiff(yamlFile1, yamlFile2)).toEqual(expectedStylish);
   });
 });
 

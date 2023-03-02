@@ -10,7 +10,21 @@ const stringify = (value) => {
   return `'${value}'`;
 };
 
-const getPlainString = (property, status) => `Property '${property}' was ${status}`;
+const getPlainStatus = (status) => {
+  switch (status) {
+    case 'deleted':
+      return 'removed';
+    case 'changed':
+      return 'updated';
+    default:
+      return status;
+  }
+};
+
+const getPlainString = (property, status) => {
+  const plainStatus = getPlainStatus(status);
+  return `Property '${property}' was ${plainStatus}`;
+};
 
 const getPlain = (tree) => {
   const iter = (innerTree, path) => innerTree

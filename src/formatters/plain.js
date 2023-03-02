@@ -17,15 +17,15 @@ const getPlain = (tree) => {
     .flatMap((el) => {
       const property = path === '' ? el.key : path.concat('.', el.key);
       switch (el.status) {
-        case 'tree':
+        case 'nested':
           return [...iter(el.children, property)];
-        case 'updated':
+        case 'changed':
           return `${getPlainString(property, el.status)}. From ${stringify(el.oldValue)} to ${stringify(el.value)}`;
         case 'unchanged':
           return [];
         case 'added':
           return `${getPlainString(property, el.status)} with value: ${stringify(el.value)}`;
-        case 'removed':
+        case 'deleted':
           return `${getPlainString(property, el.status)}`;
         default:
           throw new Error(`Unknown status: ${el.status}`);

@@ -3,7 +3,7 @@ import process from 'node:process';
 import { readFileSync } from 'node:fs';
 import parseFile from './parsers.js';
 import genDiffTree from './tree.js';
-import formatter from './formatters/index.js';
+import format from './formatters/index.js';
 
 const getPath = (file) => {
   const pwd = process.cwd();
@@ -16,7 +16,7 @@ const genDiff = (filepath1, filepath2, formatName = 'stylish') => {
     .map((filepath) => [readFileSync(filepath, 'utf8'), path.extname(filepath)])
     .map(parseFile);
   const diffTree = genDiffTree(file1, file2);
-  return formatter(diffTree, formatName);
+  return format(diffTree, formatName);
 };
 
 export default genDiff;

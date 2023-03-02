@@ -8,20 +8,20 @@ const genDiffTree = (obj1, obj2) => {
   return sortedKeys
     .map((key) => {
       if (_.isPlainObject(obj1[key]) && _.isPlainObject(obj2[key])) {
-        return { key, status: 'tree', children: genDiffTree(obj1[key], obj2[key]) };
+        return { key, status: 'nested', children: genDiffTree(obj1[key], obj2[key]) };
       }
       if (!_.has(obj1, key)) {
         return { key, status: 'added', value: obj2[key] };
       }
       if (!_.has(obj2, key)) {
-        return { key, status: 'removed', value: obj1[key] };
+        return { key, status: 'deleted', value: obj1[key] };
       }
-      if (_.isEqual(obj1[key], obj2[key])) {
-        return { key, status: 'unchanged', value: obj1[key] };
+      if (!_.isEqual(obj1[key], obj2[key])) {
+        return {
+          key, status: 'changed', value: obj2[key], oldValue: obj1[key],
+        };
       }
-      return {
-        key, status: 'updated', value: obj2[key], oldValue: obj1[key],
-      };
+      return { key, status: 'unchanged', value: obj1[key] };
     });
 };
 

@@ -1,7 +1,9 @@
 import _ from 'lodash';
 
 const getIndent = (depth, label = 'blank') => {
-  const spaces = ' '.repeat(depth * 4);
+  const indentPerDepth = 4;
+  const spaces = ' '.repeat(depth * indentPerDepth);
+
   switch (label) {
     case 'blank':
       return spaces;
@@ -29,15 +31,15 @@ const getStylish = (tree) => {
   const iter = (innerTree, depth) => {
     const content = innerTree.map((el) => {
       switch (el.status) {
-        case 'tree':
+        case 'nested':
           return `${getIndent(depth)}${el.key}: ${iter(el.children, depth + 1)}`;
-        case 'updated':
+        case 'changed':
           return `${getIndent(depth, 'minus')}${el.key}: ${stringify(el.oldValue, depth + 1)}\n${getIndent(depth, 'plus')}${el.key}: ${stringify(el.value, depth + 1)}`;
         case 'unchanged':
           return `${getIndent(depth)}${el.key}: ${stringify(el.value, depth + 1)}`;
         case 'added':
           return `${getIndent(depth, 'plus')}${el.key}: ${stringify(el.value, depth + 1)}`;
-        case 'removed':
+        case 'deleted':
           return `${getIndent(depth, 'minus')}${el.key}: ${stringify(el.value, depth + 1)}`;
         default:
           throw new Error(`Unknown status: ${el.status}`);

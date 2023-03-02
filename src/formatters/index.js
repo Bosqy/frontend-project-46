@@ -1,8 +1,8 @@
 import getStylish from './stylish.js';
 import getPlain from './plain.js';
 
-const formatter = (tree, format) => {
-  switch (format) {
+const format = (tree, formatter) => {
+  switch (formatter) {
     case 'stylish':
       return getStylish(tree);
     case 'plain':
@@ -10,8 +10,8 @@ const formatter = (tree, format) => {
     case 'json':
       return JSON.stringify(tree, null, '  ');
     default:
-      throw new Error(`Unknown formatter: ${format}`);
+      throw new Error(`Unknown formatter: ${formatter}`);
   }
 };
 
-export default formatter;
+export default format;

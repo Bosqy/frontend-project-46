@@ -1,7 +1,7 @@
 [
   {
     "key": "common",
-    "status": "tree",
+    "status": "nested",
     "children": [
       {
         "key": "follow",
@@ -15,12 +15,12 @@
       },
       {
         "key": "setting2",
-        "status": "removed",
+        "status": "deleted",
         "value": 200
       },
       {
         "key": "setting3",
-        "status": "updated",
+        "status": "changed",
         "value": null,
         "oldValue": true
       },
@@ -38,15 +38,15 @@
       },
       {
         "key": "setting6",
-        "status": "tree",
+        "status": "nested",
         "children": [
           {
             "key": "doge",
-            "status": "tree",
+            "status": "nested",
             "children": [
               {
                 "key": "wow",
-                "status": "updated",
+                "status": "changed",
                 "value": "so much",
                 "oldValue": ""
               }
@@ -68,11 +68,11 @@
   },
   {
     "key": "group1",
-    "status": "tree",
+    "status": "nested",
     "children": [
       {
         "key": "baz",
-        "status": "updated",
+        "status": "changed",
         "value": "bars",
         "oldValue": "bas"
       },
@@ -83,7 +83,7 @@
       },
       {
         "key": "nest",
-        "status": "updated",
+        "status": "changed",
         "value": "str",
         "oldValue": {
           "key": "value"
@@ -93,7 +93,7 @@
   },
   {
     "key": "group2",
-    "status": "removed",
+    "status": "deleted",
     "value": {
       "abc": 12345,
       "deep": {

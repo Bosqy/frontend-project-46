@@ -44,7 +44,7 @@ test('genDiff error: Unknown file extension', () => {
   }).toThrow('Unknown file extension');
 });
 
-test('genDiff error: Unknown file extension', () => {
+test('genDiff error: Unknown formatter', () => {
   const file1 = getFixturePath('file1.json');
   const file2 = getFixturePath('file2.json');
   expect(() => {

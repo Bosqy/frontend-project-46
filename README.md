@@ -37,7 +37,9 @@ Options:
 
 
 ## Примеры работы
+
 * Сравнение JSON
+
 [![asciicast](https://asciinema.org/a/UCu5r4Hsxe3VRP69Zio60MXYK.svg)](https://asciinema.org/a/UCu5r4Hsxe3VRP69Zio60MXYK)
 
 * Сравнение YAML

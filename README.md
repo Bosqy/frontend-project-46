@@ -23,7 +23,7 @@
 
 ### Запуск
 
-``
+```
 $ gendiff -h
 Usage: gendiff [options] <filepath1> <filepath2>
 
@@ -33,7 +33,7 @@ Options:
   -V, --version          output the version number
   -f, --format <format>  output format (default: "stylish")
   -h, --help             display help for command
-  ``
+```
 
 
 ## Примеры работы

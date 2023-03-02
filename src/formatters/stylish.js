@@ -5,14 +5,12 @@ const getIndent = (depth, label = 'blank') => {
   const spaces = ' '.repeat(depth * indentPerDepth);
 
   switch (label) {
-    case 'blank':
-      return spaces;
     case 'plus':
       return `${spaces.slice(0, -2)}+ `;
     case 'minus':
       return `${spaces.slice(0, -2)}- `;
     default:
-      throw new Error(`Unknown label: ${label}`);
+      return spaces;
   }
 };
 

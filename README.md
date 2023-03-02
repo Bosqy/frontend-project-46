@@ -1,14 +1,41 @@
-### Hexlet tests and linter status:
+# Вычиислитель отличий
+
 [![Actions Status](https://github.com/Bosqy/frontend-project-46/workflows/hexlet-check/badge.svg)](https://github.com/Bosqy/frontend-project-46/actions)
 
-### Bosqy tests and linter status:
 [![bosqy-check](https://github.com/Bosqy/frontend-project-46/actions/workflows/bosqy-check.yml/badge.svg)](https://github.com/Bosqy/frontend-project-46/actions/workflows/bosqy-check.yml)
  
-### codeclimate
-
 [![Maintainability](https://api.codeclimate.com/v1/badges/4fb4697ec2c6b7fb63ad/maintainability)](https://codeclimate.com/github/Bosqy/frontend-project-46/maintainability)
 
 [![Test Coverage](https://api.codeclimate.com/v1/badges/4fb4697ec2c6b7fb63ad/test_coverage)](https://codeclimate.com/github/Bosqy/frontend-project-46/test_coverage)
+
+## Описание проекта
+
+«Вычислитель отличий» — утилита командной строки, определяющая разницу между двумя структурами данных.
+Возможности утилиты:
+
+* Поддержка разных входных форматов: yaml, json
+* Генерация отчета в виде plain text, stylish и json
+
+### Системные требования и установка
+Для работы проекта потребуется [Node.js®](https://nodejs.org/en/) версии не ниже v16.
+
+### Инструкция по установке
+* Клонируем репозиторий
+* В папке с репозиторием выполняем `make install`
+* В папке с репозиторием выполняем `npm link` (Возможно, потребуется `sudo npm link`)
+
+### Запуск
+
+``$ gendiff -h
+Usage: gendiff [options] <filepath1> <filepath2>
+
+Compares two configuration files and shows a difference.
+
+Options:
+  -V, --version          output the version number
+  -f, --format <format>  output format (default: "stylish")
+  -h, --help             display help for command``
+
 
 ## Примеры работы
 * Сравнение JSON

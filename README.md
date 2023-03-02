@@ -41,12 +41,15 @@ Options:
 [![asciicast](https://asciinema.org/a/UCu5r4Hsxe3VRP69Zio60MXYK.svg)](https://asciinema.org/a/UCu5r4Hsxe3VRP69Zio60MXYK)
 
 * Сравнение YAML
+
 [![asciicast](https://asciinema.org/a/BRwEZNUR4ft6wO2RlxJin8UFp.svg)](https://asciinema.org/a/BRwEZNUR4ft6wO2RlxJin8UFp)
 
 * Рекурсивное сравнение JSON, YAML
+
 [![asciicast](https://asciinema.org/a/FGNtt4PZMJZhnJRvshpVPfWeG.svg)](https://asciinema.org/a/FGNtt4PZMJZhnJRvshpVPfWeG)
 
 * Плоский формат
+
 [![asciicast](https://asciinema.org/a/uQ3IdzSxLSlCTKFXKIY91zI1V.svg)](https://asciinema.org/a/uQ3IdzSxLSlCTKFXKIY91zI1V)
 
 * Формат JSON

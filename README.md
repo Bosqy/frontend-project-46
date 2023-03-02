@@ -23,7 +23,8 @@
 
 ### Запуск
 
-``$ gendiff -h
+``
+$ gendiff -h
 Usage: gendiff [options] <filepath1> <filepath2>
 
 Compares two configuration files and shows a difference.
@@ -31,7 +32,8 @@ Compares two configuration files and shows a difference.
 Options:
   -V, --version          output the version number
   -f, --format <format>  output format (default: "stylish")
-  -h, --help             display help for command``
+  -h, --help             display help for command
+  ``
 
 
 ## Примеры работы

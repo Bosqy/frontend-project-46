@@ -13,7 +13,7 @@ const getPath = (file) => {
 const genDiff = (filepath1, filepath2, formatName = 'stylish') => {
   const [file1, file2] = [filepath1, filepath2]
     .map(getPath)
-    .map((filepath) => [readFileSync(filepath, 'utf8'), path.extname(filepath)])
+    .map((filepath) => [readFileSync(filepath, 'utf8'), path.extname(filepath).slice(1)])
     .map(parseFile);
   const diffTree = genDiffTree(file1, file2);
   return format(diffTree, formatName);

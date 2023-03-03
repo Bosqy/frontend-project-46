@@ -36,10 +36,10 @@ describe('Normal work', () => {
 });
 
 describe('Errors', () => {
-  test('genDiff error: Unknown file extension', () => {
+  test('genDiff error: Unknown file format', () => {
     expect(() => {
       genDiff(txtFile1, txtFile2, 'stylish');
-    }).toThrow('Unknown file extension');
+    }).toThrow('Unknown file format');
   });
 
   test('genDiff error: Unknown formatter', () => {
